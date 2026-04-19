@@ -1,0 +1,14 @@
+.custom-navbar{
+    background-color: red;
+    padding: 10px 15px;
+}
+.custom-navbar a {
+    color: white;
+}
+.custom-navbar .navbar-brand {
+    font-size: 28px;
+}
+.footer a {
+    color: white;
+    font-size: 20px;
+}
