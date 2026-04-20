@@ -17,7 +17,7 @@ TIMELINE = data["timeline"]
 def render_homepage():
   return render_template('homepage.html', lesson = LESSONS[1])
 
-# Route 1: Learn Page -------------------------------------------------------
+# Route 2: Learn Page -------------------------------------------------------
 @app.route('/learn/<int:id>')
 def render_learnpage(id=None):
   lesson = LESSONS.get(id)
@@ -26,7 +26,7 @@ def render_learnpage(id=None):
   
   return render_template('learn.html', lesson=lesson)
 
-# Route 2: Quiz Page 
+# Route 3: Quiz Page -------------------------------------------------------
 @app.route('/quiz/<int:id>')
 def render_quizpage(id=None):
   question = QUESTIONS.get(id)
