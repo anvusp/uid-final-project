@@ -1,6 +1,9 @@
 body{
     background-color: #fffbf2ff;
 }
+.row {
+    align-items: center;
+}
 .custom-navbar{
     background-color: red;
     padding: 10px 15px;
@@ -35,13 +38,33 @@ body{
     cursor: pointer;
 }
 .img-wrapper {
+    position: relative;
     width: 100%;
-    height: 600px; 
-    overflow: hidden;
 }
-.img-wrapper img {
+.base-img {
+    display: block;
+    width: 100%;
+    height: auto; 
+}
+
+#map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+}
+
+#map-container svg {
+    width: 100%;
+    height: 100%;
+}
+.orchestra-section {
+    fill-opacity: 0; 
+    transition: fill-opacity 0.3s ease, stroke-width 0.3s ease;
+}
+.orchestra-section:hover {
+    fill-opacity: 0.8;
+    stroke-width: 4px; 
+    cursor: pointer; 
 }

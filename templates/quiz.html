@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container-fluid mt-5">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-4 pt-5">
+        <div class="col-4">
             <h1>{{ question.title }}</h1>
             <p class="mt-4 mb-4">{{ question.subtitle }}</p>
             {% if question.audio %}
@@ -15,7 +15,8 @@
         </div>
         <div class="col-8">
             <div class="img-wrapper"> 
-                <img src="{{ url_for('static', filename=question.image) }}" class="img-fluid">
+                <img src="{{ url_for('static', filename=question.image) }}" class="base-img">
+                {% include "map-container.html" %}
             </div>
         </div>
     </div>

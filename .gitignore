@@ -2,3 +2,4 @@
 __pycache__/
 .DS_Store
 static/.DS_Store
+templates/map2.html
