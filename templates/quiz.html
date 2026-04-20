@@ -3,16 +3,20 @@
 {% block content %}
 <div class="container-fluid mt-5">
     <div class="row">
-        <div class="col-4">
+        <div class="col-4 pt-5">
             <h1>{{ question.title }}</h1>
-            <p>{{ question.subtitle }}</p>
+            <p class="mt-4 mb-4">{{ question.subtitle }}</p>
+            {% if question.audio %}
             <audio controls>
                 <source src="{{ url_for('static', filename=question.audio) }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            {% endif %}
         </div>
         <div class="col-8">
-            <img src="{{ url_for('static', filename=question.image) }}" class="img-fluid">
+            <div class="img-wrapper"> 
+                <img src="{{ url_for('static', filename=question.image) }}" class="img-fluid">
+            </div>
         </div>
     </div>
 </div>
