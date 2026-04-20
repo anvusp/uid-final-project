@@ -1,24 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="col">
-                <p>Image</p>
-            </div>
-            <div class="col">
-                <h1>Quiz Heading</h1>
-                <p>Description</p>
-            </div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-4">
+            <h1>{{ question.title }}</h1>
+            <p>{{ question.subtitle }}</p>
+            <audio controls>
+                <source src="{{ url_for('static', filename=question.audio) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="col-8">
+            <img src="{{ url_for('static', filename=question.image) }}" class="img-fluid">
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block nav_buttons %}
-    <nav class="navbar footer fixed-bottom bg-dark " role="Footer">
-        <div class="container-fluid">
-            <a class="nav-link back-button" aria-current="page" href="#">Back</a>
-            <a class="nav-link next-button" aria-current="page" href="#">Next</a>
-        </div>
-    </nav>
+<nav class="navbar footer fixed-bottom bg-dark " role="Footer">
+    <div class="container-fluid">
+        <a class="nav-link back-button" aria-current="page" href="#">Back</a>
+        <a class="nav-link next-button" aria-current="page" href="#">Next</a>
+    </div>
+</nav>
 {% endblock %}
