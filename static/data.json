@@ -1,0 +1,93 @@
+{
+    "lessons" : [
+        {
+            "id": 1,
+            "title": "Orchestra Map by Instrument Family", 
+            "description": "There can be more than a hundred players in an orchestra, but they all belong to four different families of instruments: strings, woodwinds, brass, and percussion.", 
+            "image": "images/orchestra-famlies.png"
+        }, 
+        {
+            "id": 2,
+            "title": "Orchestra Map by Instrument",
+            "description": "Each family of instruments is distinguished by unique characteristics, such as the materials used to create the instruments and the different ways they produce sound. Each type of instrument is also unique.",
+            "image": "images/orchestra-instruments.png"
+        }, 
+        {
+            "id": 3, 
+            "title": "String Instruments",
+            "description": "Except for the harp, string instruments in an orchestra are pear shaped, made of wood, and hollow inside. They are mostly played with a bow, a stick with horse hair. When a player draws the bow across the string, it produces friction and creates sound.<br>In an orchestra, strings are usually: violins, violas, cellos, basses, and harp. Occasionally, in special circumstances, there are other string instruments on stage (like guitar, a celleste, or some other fancy ole thing). When something atypical is scheduled in a concert, the program will tell you all about it.", 
+            "image": "images/orchestra-strings.png",
+            "audio": "audio/britten-strings.wav"
+        }, 
+        {
+            "id": 4, 
+            "title": "Woodwinds", 
+            "description": "Lorem ipsum dolor sit amet. Laboris mollit officia et, proident amet. Sed aliqua consequat laboris lorem, irure, magna elit lorem. Ut voluptate quis aliqua, Excepteur ex. Qui magna nostrud dolor. Ex dolore qui. Minim irure ad Excepteur, do ullamco. Esse laborum anim ex.",
+            "image": "images/orchestra-woodwinds.png", 
+            "audio": "audio/britten-woodwinds.wav"
+        }, 
+        {
+            "id": 5, 
+            "title": "Brass Instruments", 
+            "description":"Lorem ipsum dolor sit amet. Laboris mollit officia et, proident amet. Sed aliqua consequat laboris lorem, irure, magna elit lorem. Ut voluptate quis aliqua, Excepteur ex. Qui magna nostrud dolor. Ex dolore qui. Minim irure ad Excepteur, do ullamco. Esse laborum anim ex.",
+            "image": "images/orchestra-brass.png",
+            "audio": "audio/britten-brass.wav"
+        },
+        {
+            "id": 6, 
+            "title": "Percussion Instruments", 
+            "description":"Lorem ipsum dolor sit amet. Laboris mollit officia et, proident amet. Sed aliqua consequat laboris lorem, irure, magna elit lorem. Ut voluptate quis aliqua, Excepteur ex. Qui magna nostrud dolor. Ex dolore qui. Minim irure ad Excepteur, do ullamco. Esse laborum anim ex.",
+            "image": "images/orch-percussion.png",
+            "audio": "audio/britten-percussion.wav"
+        }
+    ], 
+    "questions" : [
+        {
+            "id": 1,
+            "title": "What instrument is playing?",
+            "subtitle": "On the right, select the orchestral instrument you hear in the sound clip below", 
+            "answer": "Trumpet",
+            "image": "images/orchestra-instruments.png",
+            "audio": "audio/id1-trumpet.wav"
+        }
+    ], 
+    "transitions" : [
+        {
+            "id": 1, 
+            "title": "Welcome to Carnegie Hall!",
+            "text": "You're about to attend a concert at Carnegie Hall. There will be an orchestra on stage. This is your crash course to orchestral instruments, where they are usually located on stage, and each of their sounds.",
+            "button": "Get Started",
+            "href": "/learn/1"
+            
+        }, 
+        {
+            "id": 2,
+            "text": "In the next section, you will listen to each instrument play the same melody. Each listening section introduces the instruments in a specific instrument family: Strings, Woodwinds, Brass, and Percussion.", 
+            "button": "Listen and Learn",
+            "href": "/learn/3"
+        }, 
+        {
+            "id": 3,
+            "title": "Part I:<br>Are You Ready to Identify Instruments?",
+            "text": "These can be violin, viola, cello, bass, harp, flute, clarinet, oboe, bassoon, trumpet, trombone, tuba, or tuned and untuned perscussion instruments",
+            "button": "Ear We Go!",
+            "href": "/quiz/1"
+        }, 
+        {
+            "id": 4,
+            "title": "Part II:<br>Assemble the orchestra!",
+            "text": "In the next section you will hear experts of the same melody, but played by the whole family of instruments. <b>Drag and drop</b> each clip to match it with the correct instrument family. Choose among strings, woodwinds, brass, or percussion instruments.<br>You win, once the whole orchestra plays!",
+            "button": "Ear We Go!",
+            "href": "/quiz/1"
+        }
+    ], 
+    "timeline" : [
+        {"type": "transition", "id": 1}, 
+        {"type": "lesson", "id": 1}, 
+        {"type": "lesson", "id": 2}, 
+        {"type": "lesson", "id": 3}, 
+        {"type": "lesson", "id": 4}, 
+        {"type": "lesson", "id": 5}, 
+        {"type": "question", "id": 1}
+    ]
+}
