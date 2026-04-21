@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container-fluid mt-5">
-    <div class="row">
-        <div class="col-8">
-            <div class="img-wrapper"> 
+<div class="container-fluid mt-4">
+    <div class="row align-items-start">
+        <div class="col-md-8">
+            <div class="img-wrapper">
                 <img src="{{ url_for('static', filename=lesson.image) }}" class="img-fluid" alt="{{ lesson.title }}">
             </div>
         </div>
-        <div class="col-4">
+
+        <div class="col-md-4">
             <h1 id="lesson-title">{{ lesson.title }}</h1>
-            <p>{{ lesson.description | safe}}</p>
+            <p>{{ lesson.description | safe }}</p>
 
             {% if lesson.audio %}
-                <p> Listen to {{ lesson.title | safe}}:</p>
-                <audio controls>
-                    <source src="{{ url_for('static', filename=lesson.audio) }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+            <p><strong>Listen to {{ lesson.title }}:</strong></p>
+            <audio controls class="w-100">
+                <source src="{{ url_for('static', filename=lesson.audio) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
             {% endif %}
         </div>
     </div>
@@ -25,10 +26,19 @@
 {% endblock %}
 
 {% block nav_buttons %}
-<nav class="navbar footer fixed-bottom bg-dark " role="Footer">
+<nav class="navbar footer fixed-bottom bg-dark" role="navigation" aria-label="Lesson navigation">
     <div class="container-fluid">
-        <a class="nav-link back-button" aria-current="page" href="#">Back</a>
-        <a class="nav-link next-button" aria-current="page" data-current-lesson-id="{{ lesson.id }} href="#">Next</a>
+        <div>
+            {% if prev_url %}
+            <a class="btn btn-outline-light" href="{{ prev_url }}">Back</a>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if next_url %}
+            <a class="btn btn-light" href="{{ next_url }}">Next</a>
+            {% endif %}
+        </div>
     </div>
 </nav>
 {% endblock %}

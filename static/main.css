@@ -1,6 +1,11 @@
-body{
-    background-color: #fffbf2ff;
+/* -------------------------------- */
+/* Global Layout */
+/* -------------------------------- */
+
+body {
+    background-color: #fffbf2;
 }
+
 .row {
     align-items: center;
 }
@@ -8,13 +13,16 @@ body{
     background-color: #e22237;
     padding: 10px 15px;
 }
+
 .custom-navbar a {
     color: #ffffff;
 }
+
 .custom-navbar a:hover {
     color: #f0f0f0;
     transform: scale(1.05);
 }
+
 .custom-navbar .navbar-brand {
     font-size: 28px;
 }
@@ -32,20 +40,40 @@ body{
     color: #e22237;
     cursor: pointer;
 }
-.next-button:hover{
+
+
+/* -------------------------------- */
+/* Buttons */
+/* -------------------------------- */
+
+.btn:hover {
+    background-color: #d9d9d9;
+    color: black;
     transform: scale(1.05);
     color: #e22237;
     cursor: pointer;
 }
+
+
+/* -------------------------------- */
+/* Image Layout */
+/* -------------------------------- */
+
 .img-wrapper {
     position: relative;
     width: 100%;
 }
+
 .base-img {
     display: block;
     width: 100%;
-    height: auto; 
+    height: auto;
 }
+
+
+/* -------------------------------- */
+/* SVG Orchestra Map */
+/* -------------------------------- */
 
 #map-container {
     position: absolute;
@@ -59,12 +87,16 @@ body{
     width: 100%;
     height: 100%;
 }
+
 .orchestra-section {
-    fill-opacity: 0; 
-    transition: fill-opacity 0.3s ease, stroke-width 0.3s ease;
+    fill-opacity: 0;
+    transition:
+        fill-opacity 0.3s ease,
+        stroke-width 0.3s ease;
 }
+
 .orchestra-section:hover {
     fill-opacity: 0.8;
-    stroke-width: 4px; 
-    cursor: pointer; 
+    stroke-width: 4px;
+    cursor: pointer;
 }
