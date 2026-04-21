@@ -5,36 +5,36 @@ body{
     align-items: center;
 }
 .custom-navbar{
-    background-color: red;
+    background-color: #e22237;
     padding: 10px 15px;
 }
 .custom-navbar a {
-    color: white;
+    color: #ffffff;
 }
 .custom-navbar a:hover {
-    color: #d9d9d9;
+    color: #f0f0f0;
     transform: scale(1.05);
 }
 .custom-navbar .navbar-brand {
     font-size: 28px;
 }
 .footer a {
-    color: white;
+    color: #ffffff;
     font-size: 20px;
 }
 .btn:hover {
-    background-color: #d9d9d9;
+    background-color: #f0f0f0;
     color: black;
     transform: scale(1.05);
 }
 .back-button:hover{
     transform: scale(1.05);
-    color: red;
+    color: #e22237;
     cursor: pointer;
 }
 .next-button:hover{
     transform: scale(1.05);
-    color: red;
+    color: #e22237;
     cursor: pointer;
 }
 .img-wrapper {
