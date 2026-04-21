@@ -2,21 +2,58 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-4">
+    <div class="row align-items-start">
+        <div class="col-md-4">
             <h1>{{ question.title }}</h1>
-            <p class="mt-4 mb-4">{{ question.subtitle }}</p>
+            <p class="mt-3 mb-4">{{ question.subtitle }}</p>
+
             {% if question.audio %}
-            <audio controls>
+            <audio controls class="w-100 mb-4">
                 <source src="{{ url_for('static', filename=question.audio) }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
             {% endif %}
+
+            <form method="POST">
+                {% if question.type == QUESTION_TYPES.MULTIPLE_CHOICE %}
+                {% for choice in question.choices %}
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="answer" id="choice-{{ loop.index }}"
+                        value="{{ choice }}" required>
+                    <label class="form-check-label" for="choice-{{ loop.index }}">
+                        {{ choice }}
+                    </label>
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-dark mt-4">Submit Answer</button>
+
+                {% elif question.type == QUESTION_TYPES.DRAG_AND_DROP %}
+                <div class="alert alert-secondary">
+                    Drag-and-drop question UI is not implemented yet in v1.1.
+                </div>
+
+                <input type="hidden" name="answer_map" id="answer-map-input" value="{}">
+                <button type="submit" class="btn btn-dark mt-3">Submit Answer</button>
+
+                {% else %}
+                <div class="alert alert-danger">
+                    Unsupported question type: {{ question.type }}
+                </div>
+                {% endif %}
+            </form>
         </div>
-        <div class="col-8">
-            <div class="img-wrapper"> 
-                <img src="{{ url_for('static', filename=question.image) }}" class="base-img">
+
+        <div class="col-md-8">
+            <div class="img-wrapper">
+                {% if question.image %}
+                <img src="{{ url_for('static', filename=question.image) }}" class="img-fluid base-img"
+                    alt="{{ question.title }}">
+                {% endif %}
+
+                {% if question.image %}
                 {% include "map-container.html" %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -24,10 +61,23 @@
 {% endblock %}
 
 {% block nav_buttons %}
-<nav class="navbar footer fixed-bottom bg-dark " role="Footer">
+<nav class="navbar footer fixed-bottom bg-dark" role="navigation" aria-label="Quiz navigation">
     <div class="container-fluid">
-        <a class="nav-link back-button" aria-current="page" href="#">Back</a>
-        <a class="nav-link next-button" aria-current="page" href="#">Next</a>
+        <div>
+            {% if prev_url %}
+            <a class="btn btn-outline-light" href="{{ prev_url }}">Back</a>
+            {% endif %}
+        </div>
+
+        <div class="text-white">
+            {% if question.type == QUESTION_TYPES.MULTIPLE_CHOICE %}
+            Choose an answer and submit to continue
+            {% elif question.type == QUESTION_TYPES.DRAG_AND_DROP %}
+            Complete the interaction and submit to continue
+            {% else %}
+            Continue when ready
+            {% endif %}
+        </div>
     </div>
 </nav>
 {% endblock %}

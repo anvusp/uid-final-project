@@ -2,15 +2,70 @@
 
 {% block content %}
 <div class="container-fluid mt-5">
-    <div class="row">
-        <div class="col text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
             <h1>Great job! Now hear the whole orchestra…</h1>
-            <h2>Your Score: score/total</h2>
-            <p>You are now better equipped to identify what instruments are playing on stage. Enjoy your new skill and your next concert.</p>
+            <h2 class="mt-4">Your Score: {{ score }}/{{ total }}</h2>
 
-            <a href="#" class="btn btn-dark w-25 mt-4">Explore Upcoming Events</a>
+            <p class="mt-4">
+                You are now better equipped to identify what instruments are playing on stage.
+                Enjoy your new skill and your next concert.
+            </p>
+
+            <div class="card mt-4 text-start">
+                <div class="card-body">
+                    <h4 class="card-title">Quiz Summary</h4>
+                    <p class="mb-2">
+                        <strong>Quiz started at:</strong>
+                        {{ user_state.quiz_started_at if user_state.quiz_started_at else "Not recorded" }}
+                    </p>
+                    <p class="mb-0">
+                        <strong>Quiz completed at:</strong>
+                        {{ user_state.quiz_completed_at if user_state.quiz_completed_at else "Not recorded" }}
+                    </p>
+                </div>
+            </div>
+
+            {% if results_review %}
+            <div class="mt-5 text-start">
+                <h3>Answer Review</h3>
+
+                {% for item in results_review %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+
+                        {% if item.show_question_type %}
+                        <p class="mb-1">
+                            <strong>Question type:</strong> {{ item.question_type_display }}
+                        </p>
+                        {% endif %}
+
+                        {% if item.show_user_answer %}
+                        <p class="mb-1">
+                            <strong>Your answer:</strong> {{ item.user_answer_display }}
+                        </p>
+                        {% endif %}
+
+                        {% if item.show_correct_answer %}
+                        <p class="mb-1">
+                            <strong>Correct answer:</strong> {{ item.correct_answer_display }}
+                        </p>
+                        {% endif %}
+
+                        <span class="badge bg-{{ item.status_class }}">
+                            {{ item.status_label }}
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <a href="{{ url_for('render_homepage') }}" class="btn btn-dark mt-4">
+                Start Over
+            </a>
         </div>
     </div>
 </div>
-
 {% endblock %}
